@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+<h2 class="card-title">Trails</h2>
+
+<table id="list" class="table table-hover caption-top">
+    <thead>
+      <tr class="table-borderless table">
+        <th scope="col" style="font-weight: 600;">Trail</th>
+        <th scope="col" style="font-weight: 600;">Miles</th>
+        <th scope="col" style="font-weight: 600;">Region</th>
+        <th scope="col" style="font-weight: 600;">Added By User</th>
+        <th scope="col" style="font-weight: 600;">Delete</th>
+        <th scope="col" style="font-weight: 600;">Trail Details</th>
+        <br>
+      </tr>
+    </thead>
+    <tbody>
+      <% trails.forEach(function(t) { %>
+        <tr scope="row">
+          <td><%= t.name %></td>
+          <td><%= t.miles %></td>
+          <td><%= t.region %></td>
+          <td class="review-user"><img alt="avatar" src="<%= t.userAvatar %>" referrerpolicy="no-referrer" ><%= t.userName %></td>
+          <td>
+            <% if (user && user._id.equals(t.user)) { %>
+              <form action="/trails/<%= t._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+              </form>
+            <% } else { %>
+              <script>
+                console.log("***user issue");
+              </script>
+            <% } %>
+          </td>
+          <td><a href="/trails/<%= t._id %>">Show Trail</a></td>
+
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <a href='/trails/new'>New Trail</a>
+
+<%- include('../partials/footer') %>

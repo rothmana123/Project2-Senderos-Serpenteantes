@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+
+<h2>Add a New Trail</h2>
+<form id="new-form" action="/trails" method="POST" autocomplete="off">
+    <div class="mb-3">
+      <label>Name of Trail:</label>
+      <input type="text" name="name">
+    </div>
+    <div class="mb-3">
+      <label>Length of Hike (Miles):</label>
+      <input type="number" name="miles">
+    </div>
+    
+    <div class="mb-3">
+      <label>Region (*Northern CA Only*):</label>
+      <select name="region">
+        <option value="San Francisco Bay Area">San Francisco Bay Area</option>
+        <option value="Redwood Empire">Redwood Empire</option>
+        <option value="Shasta and Trinity">Shasta and Trinity</option>
+        <option value="Lassen and Modoc">Lassen and Modoc</option>
+        <option value="Mendocino and Wine Country">Mendocino and Wine Country</option>
+        <option value="Sacramento and Gold Country">Sacramento and Gold Country</option>
+        <option value="Tahoe and Northern Sierra">Tahoe and Northern Sierra</option>
+        <option value="Yosemite and Mammoth Lakes">Yosemite and Mammoth Lakes</option>
+        <option value="Monterey and Big Sur">Monterey and Big Sur</option>
+        <option value="San Joaquin Valley">San Joaquin Valley</option>
+        <option value="Sequoia and King Canyon">Sequoia and King Canyon</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label>State:</label>
+      <input type="text" name="state">
+    </div>
+    <h3>Optional</h3>
+    <div class="mb-3">
+        <label>Latitude:</label>
+        <input type="number" name="latitude">
+      </div>
+      <div class="mb-3"> 
+        <label>Longitude:</label>
+        <input type="number" name="longitude">
+      </div>
+    <div class="mb-3">
+      <label>Features:</label><br>
+      <label><input type="checkbox" name="features" value="Coast"> Coast</label><br>
+      <label><input type="checkbox" name="features" value="Hills"> Hills</label><br>
+      <label><input type="checkbox" name="features" value="Mountains"> Mountains</label><br>
+      <label><input type="checkbox" name="features" value="Creek"> Creek</label><br>
+      <label><input type="checkbox" name="features" value="Rivers"> Rivers</label><br>
+      <label><input type="checkbox" name="features" value="Forests"> Forests</label><br>
+      <input type="hidden" name="features" value="">
+    </div>
+    <button type="submit">Save Trail</button>
+  </form>
+  
+
+<%- include('../partials/footer') %>
