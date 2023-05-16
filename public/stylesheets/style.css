@@ -1,1 +1,22 @@
+#add-review-form {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+}
 
+#add-review-form input[type="submit"]  {
+  width: 10rem;
+  grid-column: 2 / 3;
+}
+
+.review-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .review-user img {
+    border-radius: 50%;
+    height: 40px;
+  }

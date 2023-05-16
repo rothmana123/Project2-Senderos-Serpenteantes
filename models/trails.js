@@ -2,6 +2,27 @@ const mongoose = require('mongoose');
 // optional shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
 
+const reviewSchema = new Schema({
+  content: {
+    type: String,
+    required: true
+  },
+  rating: {
+    type: Number,
+    min: 1,
+    max: 5,
+  },
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  userName: String,
+  userAvatar: String
+}, {
+  timestamps: true
+});
+
 const trailSchema = new Schema({
     name: { type: String, required: true },
     miles: {type: Number },
@@ -28,6 +49,7 @@ const trailSchema = new Schema({
     userName: String,
     userAvatar: String,
     // reviews: [reviewSchema]
+    reviews: [reviewSchema],
 }, {
     timestamps: true
   });
