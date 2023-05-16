@@ -1,0 +1,60 @@
+<%- include('../partials/header') %>
+
+<h2 class="card-title">Edit Trail: <%= trail.name %></h2>
+    <form id="new-form" action="/trails/<%= trail._id %>?_method=PUT" method="POST" autocomplete="off">
+
+    <div class="mb-3">
+      <label>Name of Trail:</label>
+      <input type="text" name="name" value="<%= trail.name %>"> 
+    </div>
+    <div class="mb-3">
+      <label>Length of Hike (Miles):</label>
+      <input type="number" name="miles" value="<%= trail.miles %>">
+    </div>
+    
+    <div class="mb-3">
+      <label>Region (*Northern CA Only*):</label>
+      <select name="region" value="<%= trail.region %>">
+        <option value="San Francisco Bay Area">San Francisco Bay Area</option>
+        <option value="Redwood Empire">Redwood Empire</option>
+        <option value="Shasta and Trinity">Shasta and Trinity</option>
+        <option value="Lassen and Modoc">Lassen and Modoc</option>
+        <option value="Mendocino and Wine Country">Mendocino and Wine Country</option>
+        <option value="Sacramento and Gold Country">Sacramento and Gold Country</option>
+        <option value="Tahoe and Northern Sierra">Tahoe and Northern Sierra</option>
+        <option value="Yosemite and Mammoth Lakes">Yosemite and Mammoth Lakes</option>
+        <option value="Monterey and Big Sur">Monterey and Big Sur</option>
+        <option value="San Joaquin Valley">San Joaquin Valley</option>
+        <option value="Sequoia and King Canyon">Sequoia and King Canyon</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label>State:</label>
+      <input type="text" name="state" value="<%= trail.state %>">
+    </div>
+    <h3>Optional</h3>
+    <div class="mb-3">
+        <label>Latitude:</label>
+        <input type="number" name="latitude" value="<%= trail.latitude %>">
+      </div>
+      <div class="mb-3"> 
+        <label>Longitude:</label>
+        <input type="number" name="longitude" value="<%= trail.longitude %>">
+      </div>
+      <div class="mb-3">
+        <label>Features:</label><br>
+        <label><input type="checkbox" name="features" value="Coast" <% if (trail.features && trail.features.includes('Coast')) { %>checked<% } %>> Coast</label><br>
+        <label><input type="checkbox" name="features" value="Hills" <% if (trail.features && trail.features.includes('Hills')) { %>checked<% } %>> Hills</label><br>
+        <label><input type="checkbox" name="features" value="Mountains" <% if (trail.features && trail.features.includes('Mountains')) { %>checked<% } %>> Mountains</label><br>
+        <label><input type="checkbox" name="features" value="Creek" <% if (trail.features && trail.features.includes('Creek')) { %>checked<% } %>> Creek</label><br>
+        <label><input type="checkbox" name="features" value="Rivers" <% if (trail.features && trail.features.includes('Rivers')) { %>checked<% } %>> Rivers</label><br>
+        <label><input type="checkbox" name="features" value="Forests" <% if (trail.features && trail.features.includes('Forests')) { %>checked<% } %>> Forests</label><br>
+        <label><input type="checkbox" name="features" value="Wildflowers" <% if (trail.features && trail.features.includes('Wildflowers')) { %>checked<% } %>> Wildflowers</label><br>
+        <label><input type="checkbox" name="features" value="Waterfall" <% if (trail.features && trail.features.includes('Waterfall')) { %>checked<% } %>> Waterfall</label><br>
+        <input type="hidden" name="features" value="">
+      </div>
+    <button type="submit">Save Trail</button>
+  </form>
+  
+
+<%- include('../partials/footer') %>

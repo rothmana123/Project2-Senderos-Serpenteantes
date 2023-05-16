@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+<h2 class="card-title"><%= trail.name %></h2>
+
+<table id="list" class="table table-hover caption-top">
+    <tbody>
+      <tr>
+        <td style="font-weight: 600;">Region:</td>
+        <td style="padding-left: 10px;"><%= trail.region %></td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600;">Distance:</td>
+        <td style="padding-left: 10px;"><%= trail.miles %></td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600;">Features:</td>
+        <td style="padding-left: 10px;"><%= trail.features %></td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600;">Trail Added By:</td>
+        <td style="padding-left: 10px;"><%= trail.userName %></td>
+      </tr>
+      <tr>
+        <td style="font-weight: 600;">Date Created:</td>
+        <td style="padding-left: 10px;"><%= trail.createdAt.toLocaleDateString() %></td>
+      </tr>
+    </tbody>
+  </table>
+    <a href='/trails/<%= trail._id %>/edit'>Edit Trail</a>
+
+<%- include('../partials/footer') %>
