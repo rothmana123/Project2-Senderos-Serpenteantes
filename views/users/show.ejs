@@ -9,8 +9,23 @@
 
 <div class="section">
     <h2>Favorite Hikes</h2>
+
     <!-- Content for Favorite Hikes section -->
+    <% if (favoriteTrails && favoriteTrails.length > 0) { %>
+      <ul>
+          <% favoriteTrails.forEach(function(trail) { %>
+            <li><a href="/trails/<%= trail._id %>"><%= trail.name %></a></li>
+          <% }); %>
+      </ul>
+  <% } else { %>
+      <p>No favorite hikes found.</p>
+  <% } %>
+
 </div>
+
+
+
+
 
 <div class="section">
     <h2>Wish List</h2>

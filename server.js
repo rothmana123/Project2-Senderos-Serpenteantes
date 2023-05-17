@@ -64,6 +64,6 @@ app.use(function (err, req, res, next) {
 })
 
 
-console.log("application routes; ", app._router.stack);
+// console.log("application routes; ", app._router.stack);
 
 module.exports = app

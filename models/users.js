@@ -11,6 +11,8 @@ const userSchema = new Schema(
 		email: String,
 		avatar: String,
 		favorites: [String],
+		completed: [String],
+		reviews: [String],
 	},
 	{
 		timestamps: true,

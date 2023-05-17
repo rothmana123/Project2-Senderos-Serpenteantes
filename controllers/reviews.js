@@ -1,4 +1,5 @@
 const Trails = require('../models/trails');
+const Users = require('../models/users');
 
 module.exports = {
     create: createReview,
