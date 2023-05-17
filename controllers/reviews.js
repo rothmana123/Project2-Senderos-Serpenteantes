@@ -3,6 +3,7 @@ const Users = require('../models/users');
 
 module.exports = {
     create: createReview,
+    delete: deleteReview,
   };
   
 
@@ -47,5 +48,44 @@ module.exports = {
         res.status(500).send('Internal Server Error');
       });
   }
+  
+  function deleteReview(req, res) {
+    console.log("****This is Delete Function debugging****");
+  
+    if (!req.isAuthenticated()) {
+      console.log("the user is not authenticated");
+      return res.redirect('/trails'); // Redirect to the login page or handle unauthorized access
+    }
+  
+    const trailId = req.params.trailId;
+    const reviewId = req.params.reviewId;
+  
+    Trails.findById(trailId)
+      .then((trail) => {
+        if (!trail) {
+          // Trail not found
+          return res.redirect('/trails');
+        }
+  
+        const reviewIndex = trail.reviews.findIndex((review) => review._id.equals(reviewId));
+  
+        if (reviewIndex === -1) {
+          // Review not found in the trail
+          return res.redirect('/trails');
+        }
+  
+        trail.reviews.splice(reviewIndex, 1);
+  
+        return trail.save();
+      })
+      .then(() => {
+        return res.redirect('/trails/show');
+      })
+      .catch((error) => {
+        console.error(error);
+        return res.status(500).send('Internal Server Error');
+      });
+  }
+  
   
   

@@ -10,4 +10,7 @@ const ensureLoggedIn = require('../config/auth');
 // POST /reviews/:id/reviews (create review for a movie)
 router.post('/:id/reviews', ensureLoggedIn, reviewsControl.create);
 
+//Delete /reviews
+router.delete('/:id', reviewsControl.delete);
+
 module.exports = router

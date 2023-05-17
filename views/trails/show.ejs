@@ -52,7 +52,10 @@
 
   <br><br><h2>Add a Review:</h2>
 <form id="add-review-form" action="/reviews/<%= trail._id %>/reviews" method="POST">
-
+  <label>Name of Trail:</label>
+  <input type="text" name="nameOfTrail" value="<%= trail.name %>">
+  <label>Date Hiked:</label>
+  <input type="date" name="dateHiked" >
   <label>Review:</label>
   <textarea name="content"></textarea>
   <label>Rating:</label>
@@ -66,17 +69,13 @@
   <input type="submit" value="Add Review">
 </form>
 
-<form id="complete-trail-form" action="/trails/<%= trail._id %>?_method=PUT" method="POST" autocomplete="off">
-  <label><input type="checkbox" name="completedTrail" value=""> Completed</label>
-</form>
-
 <br><br><h2>Reviews!</h2>
 <% if (trail.reviews.length) { %>
     <table>
       <thead>
         <tr>
           <th>User</th>
-          <th>Date</th>
+          <th>Date Hiked</th>
           <th>Review</th>
           <th>Rating</th>
           <th></th>
@@ -88,7 +87,7 @@
           <% total += r.rating %>
           <tr>
             <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer" ><%= r.userName %></td>
-            <td><%= r.createdAt.toLocaleDateString() %></td>
+            <td><%= r.dateHiked ? r.dateHiked.toLocaleDateString() : '' %></td>
             <td><%= r.content %></td>
             <td><%= r.rating %></td>
             <td>

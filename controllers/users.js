@@ -59,28 +59,7 @@ function removeFavorite(req, res) {
   })
 }
 
-// function favoriteTrailsList (req, res) {
-//   console.log("***favoriteTrails function hit***")
-//   const userID = req.params.id
 
-//   Users.findById(userID)
-//     .then((user) => {
-//       const trailIDs = user.favorites;
-//       console.log("***ids of user favorite trails:", trailIDs);
-//       const favoriteTrails = [];
-//       trailIDs.forEach(function(id) {
-//         Trails.findById(id)
-//           .then((trail) => {
-//             favoriteTrails.push(trail)
-//         })
-//       console.log("***user's favorite trails:", favoriteTrails);
-//       res.render('users/show', { favoriteTrails });
-//     }).catch((error) => {
-//     console.log(error);
-//     res.status(500).send("Error creating favorites list");
-//     })
-//   })
-// }
 function showUser(req, res) {
   console.log("******show User route was hit");
   const userId = req.params.id;
@@ -99,6 +78,9 @@ function showUser(req, res) {
       res.status(500).send('Error finding User');
     });
 }
+
+
+
 
 function favoriteTrailsList(userID) {
   console.log("***favoriteTrails function hit***");
