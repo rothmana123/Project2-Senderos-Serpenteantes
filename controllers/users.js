@@ -7,7 +7,8 @@ module.exports = {
     show: showUser,
     addFavorite,
     removeFavorite,
-    favoriteTrailsList
+    favoriteTrailsList,
+    completedTrailsList,
   };
 
 function index(req, res) {
@@ -86,11 +87,12 @@ function showUser(req, res) {
 
   Promise.all([
     Users.findById(userId),
-    favoriteTrailsList(userId)
+    favoriteTrailsList(userId),
+    completedTrailsList(userId)
   ])
-    .then(([user, favoriteTrails]) => {
+    .then(([user, favoriteTrails, completedTrails]) => {
       console.log(user);
-      res.render('users/show', { user, favoriteTrails });
+      res.render('users/show', { user, favoriteTrails, completedTrails});
     })
     .catch((error) => {
       console.log(error);
@@ -118,6 +120,38 @@ function favoriteTrailsList(userID) {
           } catch (error) {
             console.log(error);
             reject("Error creating favorites list");
+          }
+        };
+
+        fetchTrails();
+      })
+      .catch((error) => {
+        console.log(error);
+        reject("Error retrieving user");
+      });
+  });
+}
+
+function completedTrailsList(userID) {
+  console.log("***favoriteTrails function hit***");
+  return new Promise((resolve, reject) => {
+    Users.findById(userID)
+      .then((user) => {
+        const trailIDs = user.completed;
+        console.log("***ids of user favorite trails:", trailIDs);
+        const completedTrails = [];
+
+        const fetchTrails = async () => {
+          try {
+            for (let i = 0; i < trailIDs.length; i++) {
+              const trail = await Trails.findById(trailIDs[i]);
+              completedTrails.push(trail);
+            }
+            console.log("***user's favorite trails:", completedTrails);
+            resolve(completedTrails);
+          } catch (error) {
+            console.log(error);
+            reject("Error creating completed trails list");
           }
         };
 

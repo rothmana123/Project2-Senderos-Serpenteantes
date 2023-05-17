@@ -5,10 +5,19 @@
 <div class="section">
     <h2>Hiking Log</h2>
     <!-- Content for Hiking Log section -->
+    <% if (completedTrails && completedTrails.length > 0) { %>
+      <ul>
+          <% completedTrails.forEach(function(trail) { %>
+            <li><a href="/trails/<%= trail._id %>"><%= trail.name %></a></li>
+          <% }); %>
+      </ul>
+  <% } else { %>
+      <p>No completed trails found.</p>
+  <% } %>
 </div>
 
 <div class="section">
-    <h2>Favorite Hikes</h2>
+    <h2>Top Hikes</h2>
 
     <!-- Content for Favorite Hikes section -->
     <% if (favoriteTrails && favoriteTrails.length > 0) { %>

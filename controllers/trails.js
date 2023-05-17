@@ -84,7 +84,7 @@ function show(req, res) {
   console.log("******show route was hit");
   Trails.findById(req.params.id)
     .then((trail) => {
-      console.log(trail);
+      //console.log(trail);
       res.render('trails/show', { trail });
     })
     .catch((error) => {
