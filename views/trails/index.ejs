@@ -4,12 +4,13 @@
 <table id="list" class="table table-hover caption-top">
     <thead>
       <tr class="table-borderless table">
-        <th scope="col" style="font-weight: 600;">Trail</th>
-        <th scope="col" style="font-weight: 600;">Miles</th>
-        <th scope="col" style="font-weight: 600;">Region</th>
-        <th scope="col" style="font-weight: 600;">Added By User</th>
-        <th scope="col" style="font-weight: 600;">Delete</th>
-        <th scope="col" style="font-weight: 600;">Trail Details</th>
+        <th scope="col" class="trail-table-head">Trail</th>
+        <th scope="col" class="trail-table-head">Miles</th>
+        <th scope="col" class="trail-table-head">Region</th>
+        <th scope="col" class="trail-table-head">Features</th>
+        <th scope="col" class="trail-table-head">Added By User</th>
+        <th scope="col" class="trail-table-head">Delete</th>
+        <th scope="col" class="trail-table-head">Trail Details</th>
         <br>
       </tr>
     </thead>
@@ -19,7 +20,10 @@
           <td><%= t.name %></td>
           <td><%= t.miles %></td>
           <td><%= t.region %></td>
-          <td class="review-user"><img alt="avatar" src="<%= t.userAvatar %>" referrerpolicy="no-referrer" ><%= t.userName %></td>
+          <td><ul><% t.features.forEach(function(f) { %> 
+            <li> <%= f %> </li>
+            <% }); %> </ul></td>
+          <td ><img alt="avatar" src="<%= t.userAvatar %>" referrerpolicy="no-referrer" ><%= t.userName %></td>
           <td>
             <% if (user && user._id.equals(t.user)) { %>
               <form action="/trails/<%= t._id %>?_method=DELETE" method="POST">
@@ -32,7 +36,7 @@
             <% } %>
           </td>
           <td><a href="/trails/<%= t._id %>">Show Trail</a></td>
-
+          
         </tr>
         <% }); %>
       </tbody>

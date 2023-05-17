@@ -34,7 +34,7 @@ module.exports = {
     const features = req.body.features || [];
 
     // Convert the features array to a comma-separated string
-    const featuresString = features.join(', ');
+    //const featuresString = features.join(', ');
 
     // Create a new trail and assign the features
     const newTrail = new Trails({
@@ -44,7 +44,7 @@ module.exports = {
       longitude: req.body.longitude,
       region: req.body.region,
       state: req.body.state,
-      features: featuresString, // Assign the converted string to the features field
+      features: features, // Assign the converted string to the features field
       user: req.body.user,
       userName: req.user.name,
     });

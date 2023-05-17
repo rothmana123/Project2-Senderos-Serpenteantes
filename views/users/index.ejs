@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+<h2 class="card-title">Users</h2>
+
+<table id="list" class="table table-hover caption-top">
+    <thead>
+      <tr class="table-borderless table">
+        <th scope="col" style="font-weight: 600;">Number</th>
+        <th scope="col" style="font-weight: 600;">Avi</th>
+        <th scope="col" style="font-weight: 600;">Name</th>
+        
+        <th scope="col" style="font-weight: 600;">Joined</th>
+        <br>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(function(t) { %>
+        <tr scope="row">
+          <td></td>
+          <td class="review-user"><img alt="avatar" src="<%= t.userAvatar %>" referrerpolicy="no-referrer" >
+          <td><%= t.name %></td>
+          <td><%= t.createdAt.toLocaleDateString() %> %></td>
+          <%= t.userName %></td>
+          <td>
+          <td><a href="/users/<%= t._id %>">Show User Profile</a></td>
+
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+<%- include('../partials/footer') %>

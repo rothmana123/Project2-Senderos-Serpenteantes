@@ -11,12 +11,34 @@
 }
 
 .review-user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
   }
   
   .review-user img {
     border-radius: 50%;
     height: 40px;
   }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.section {
+    width: 25%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.section h2 {
+    text-align: center;
+}
+
+.trail-table-head {
+  font-weight: 600;
+
+}

@@ -10,6 +10,7 @@ const userSchema = new Schema(
 		},
 		email: String,
 		avatar: String,
+		favorites: [String],
 	},
 	{
 		timestamps: true,
