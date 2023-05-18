@@ -1,6 +1,64 @@
 <%- include('../partials/header') %>
 <h2 class="card-title">Trails</h2>
 
+<form action="/trails" method="GET">
+  <div class="filter-section">
+    <label for="sort">Filter by Miles:</label>
+    <select name="sort" id="sort">
+      <option value="">Default</option>
+      <option value="longest">Longest to Shortest</option>
+      <option value="shortest">Shortest to Longest</option>
+    </select>
+  </div>
+  
+  <div class="filter-section">
+    <label for="region">Filter by Region:</label>
+    <select name="region" id="region">
+      <option value="">All Regions</option>
+      <option value="Redwood Empire">Redwood Empire</option>
+      <option value="Shasta and Trinity">Shasta and Trinity</option>
+      <option value="Lassen and Modoc">Lassen and Modoc</option>
+      <option value="Mendocino and Wine Country">Mendocino and Wine Country</option>
+      <option value="Sacramento and Gold Country">Sacramento and Gold Country</option>
+      <option value="Tahoe and Northern Sierra">Tahoe and Northern Sierra</option>
+      <option value="San Francisco Bay Area">San Francisco Bay Area</option>
+      <option value="Yosemite and Mammoth Lakes">Yosemite and Mammoth Lakes</option>
+      <option value="Monterey and Big Sur">Monterey and Big Sur</option>
+      <option value="San Joaquin Valley">San Joaquin Valley</option>
+      <option value="Sequoia and King Canyon">Sequoia and King Canyon</option>
+    </select>
+  </div>
+
+  <div class="filter-section">
+    <label for="rating">Filter by Rating:</label>
+    <select name="rating" id="rating">
+      <option value="">All Ratings</option>
+      <option value="highest">Highest to Lowest</option>
+      <option value="lowest">Lowest to Highest</option>
+    </select>
+  </div>
+  
+  <div class="filter-section">
+    <label for="feature">Filter by Features:</label>
+    <label>Hold Down Control to choose more than 1</label><br>
+    <select name="feature" id="feature" multiple>
+      <option value="">All Features</option>
+      <option value="Coast">Coast</option>
+      <option value="Hills">Hills</option>
+      <option value="Mountains">Mountains</option>
+      <option value="Creek">Creek</option>
+      <option value="Rivers">Rivers</option>
+      <option value="Forests">Forests</option>
+      <option value="Wildflowers">Wildflowers</option>
+      <option value="Lakes">Lakes</option>
+      <option value="Waterfall">Waterfall</option>
+    </select>
+  </div>
+
+  <button type="submit">Apply Filters</button>
+  <button type="submit" name="sort" value="default">Default Filter</button>
+</form>
+
 <table id="list" class="table table-hover caption-top">
     <thead>
       <tr class="table-borderless table">
@@ -8,6 +66,7 @@
         <th scope="col" class="trail-table-head">Miles</th>
         <th scope="col" class="trail-table-head">Region</th>
         <th scope="col" class="trail-table-head">Features</th>
+        <th scope="col" class="trail-table-head">Rating</th>
         <th scope="col" class="trail-table-head">Added By User</th>
         <th scope="col" class="trail-table-head">Delete</th>
         <th scope="col" class="trail-table-head">Trail Details</th>
@@ -23,6 +82,7 @@
           <td><ul><% t.features.forEach(function(f) { %> 
             <li> <%= f %> </li>
             <% }); %> </ul></td>
+            <td><%= t.averageRating %></td>
           <td ><img alt="avatar" src="<%= t.userAvatar %>" referrerpolicy="no-referrer" ><%= t.userName %></td>
           <td>
             <% if (user && user._id.equals(t.user)) { %>

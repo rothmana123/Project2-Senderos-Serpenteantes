@@ -11,16 +11,52 @@ module.exports = {
   };
 
   function index(req, res) {
-    Trails.find({})
+    const filters = {};
+  
+    // Extract filter values from the request query
+    const { miles, region, feature, sort, rating } = req.query;
+  
+    // Apply filters if they exist
+    if (miles) {
+      filters.miles = { $gte: parseInt(miles) };
+    }
+  
+    if (region) {
+      filters.region = region;
+    }
+  
+    if (feature) {
+      const features = Array.isArray(feature) ? feature : [feature];
+      filters.features = { $all: features };
+    }
+  
+    Trails.find(filters)
+      .sort(sort === 'shortest' ? { miles: 1 } : sort === 'longest' ? { miles: -1 } : {})
       .then((trails) => {
-        res.render('trails/index', { title: 'All the Trails', trails });
+        // Apply rating filter if it exists
+        if (rating === 'highest') {
+          trails.sort((a, b) => b.averageRating - a.averageRating);
+        } else if (rating === 'lowest') {
+          trails.sort((a, b) => a.averageRating - b.averageRating);
+        }
+  
+        res.render('trails/index', {
+          title: 'All the Trails',
+          trails,
+          selectedFilters: { miles, region, feature, sort, rating },
+        });
       })
       .catch((error) => {
-        // Handle error
         console.error(error);
         res.status(500).send('Internal Server Error');
       });
   }
+  
+  
+  
+  
+  
+  
 
   function newTrailPage(req, res) {
     res.render('trails/new', { Trails }

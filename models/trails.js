@@ -55,6 +55,16 @@ const trailSchema = new Schema({
 }, {
     timestamps: true
   });
+
+  trailSchema.virtual('averageRating').get(function () {
+    const reviews = this.reviews;
+    if (reviews.length === 0) {
+      return 'No Reviews';
+    }
+    const totalRating = reviews.reduce((sum, review) => sum + review.rating, 0);
+    const averageRating = totalRating / reviews.length;
+    return averageRating.toFixed(1); 
+  });
   
   // Compile the schema into a model and export it
   module.exports = mongoose.model('Trail', trailSchema);

@@ -70,16 +70,13 @@ function showUser(req, res) {
     completedTrailsList(userId)
   ])
     .then(([user, favoriteTrails, completedTrails]) => {
-      console.log(user);
-      res.render('users/show', { user, favoriteTrails, completedTrails});
+      res.render('users/show', { user, favoriteTrails, completedTrails });
     })
     .catch((error) => {
       console.log(error);
       res.status(500).send('Error finding User');
     });
 }
-
-
 
 
 function favoriteTrailsList(userID) {
