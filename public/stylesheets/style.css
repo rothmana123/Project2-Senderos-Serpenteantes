@@ -42,3 +42,104 @@ h1 {
   font-weight: 600;
 
 }
+
+/* Trail Details Page */
+.trail-details {
+  padding: 20px;
+}
+
+.trail-info {
+  margin-bottom: 20px;
+}
+
+.trail-name {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.trail-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-heading {
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.edit-delete-buttons {
+  margin-top: 20px;
+}
+
+.edit-button,
+.delete-button {
+  padding: 8px 16px;
+  margin-right: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.favorite-button {
+  margin-top: 20px;
+}
+
+.favorite-button button {
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.reviews {
+  margin-top: 20px;
+}
+
+.section-heading {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#add-review-form textarea {
+  width: 100%;
+  height: 100px;
+  resize: vertical;
+  margin-bottom: 10px;
+}
+
+.reviews-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.reviews-table th,
+.reviews-table td {
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+}
+
+.review-user img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.no-reviews {
+  font-style: italic;
+}
+
+.add-new-trail {
+  padding: 20px;
+}
+
+.add-new-trail .form-group {
+  margin-bottom: 10px;
+}
+
+.add-new-trail .optional-section {
+  margin-top: 20px;
+}
