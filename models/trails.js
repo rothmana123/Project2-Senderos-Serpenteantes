@@ -50,7 +50,6 @@ const trailSchema = new Schema({
       },
     userName: String,
     userAvatar: String,
-    // reviews: [reviewSchema]
     reviews: [reviewSchema],
 }, {
     timestamps: true

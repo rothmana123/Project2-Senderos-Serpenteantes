@@ -15,7 +15,7 @@
               <option value="shortest">Shortest to Longest</option>
             </select>
           </div>
-          <button type="submit">Apply Filters</button>
+          <button type="submit">Apply Filter</button>
         </form>
       </div>
   
@@ -38,7 +38,7 @@
               <option value="Sequoia and King Canyon">Sequoia and King Canyon</option>
             </select>
           </div>
-          <button type="submit">Apply Filters</button>
+          <button type="submit">Apply Filter</button>
         </form>
       </div>
   
@@ -52,16 +52,16 @@
               <option value="lowest">Lowest to Highest</option>
             </select>
           </div>
-          <button type="submit">Apply Filters</button>
+          <button type="submit">Apply Filter</button>
         </form>
       </div>
 
       <div class="filter-column">
+        <form action="/trails" method="GET" class="filter-form">
         <div class="filter-section">
           <label for="feature">Filter by Features:</label><br>
-          
           <select name="feature" id="feature" class="expand-select" multiple>
-            <option value="">All Features: Use Control for 2+</option>
+            <option>All Features: Use Control for 2+</option>
             <option value="Coast">Coast</option>
             <option value="Hills">Hills</option>
             <option value="Mountains">Mountains</option>
@@ -72,9 +72,10 @@
             <option value="Lakes">Lakes</option>
             <option value="Waterfall">Waterfall</option>
           </select>
-          <label></label><br>
+          
         </div>
-        <button type="submit">Apply Filters</button>
+        <button type="submit">Apply Filter</button>
+      </form>
       </div>
          
       <div class="filter-column center-button">

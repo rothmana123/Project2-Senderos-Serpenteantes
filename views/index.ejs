@@ -1,13 +1,25 @@
 <%- include('./partials/header') %>
 
 <div class="container">
-    <h2 id="indexTitle"> Senderos NorCal :)</h2>
+    <h2 id="indexTitle"> Senderos NorCal</h2>
   
     <div >
       <body id="page1" class="text-center">
         
       </body>
-    </div>
+      <h2 class="feed-title">Feed:</h2>
+        <div class="feed">
+        <ul>
+          <% feedItems.forEach(function(item) { %>
+            <% if (item.type === 'trail') { %>
+              <li class="feed-item">New Trail: <a href="/trails/<%= item.trail._id %>"><%= item.trail.name %></a> created by <%= item.user.name %> on <%= item.createdAt.toDateString() %></li>
+
+            <% } else if (item.type === 'review') { %>
+              <li class="feed-item">New Review for trail: <%= item.review.nameOfTrail %></a> created by <%= item.user.name %> on <%= item.createdAt.toDateString() %></li>
+              <% } %>
+          <% }); %>
+        </ul>
+      </div>
   </div>
 
 <%- include('./partials/footer') %>

@@ -200,6 +200,7 @@ h1 {
   text-align: left;
 }
 
+
 /* index page css */
 .trail-index {
   background-color: #f8f8f8;
@@ -214,6 +215,32 @@ h1 {
   margin-bottom: 20px;
   border: 1px solid #ddd;
 }
+
+.feed {
+  background-color: rgba(128, 128, 128, 0.8);
+  padding: 10px;
+  margin: 10px auto;
+  max-width: 99%;
+  font-size: 22px;
+  font-style: bold ;
+  text-align: left;
+}
+
+.feed-item {
+  margin-bottom: 5px;
+}
+
+.feed-item a {
+  color: white;
+}
+
+.feed-title {
+  font-size: 42px;
+  font-style: bold ;
+  margin-top: 70px;
+}
+
+
 
 /* add a new page */
 .add-trail-section {
