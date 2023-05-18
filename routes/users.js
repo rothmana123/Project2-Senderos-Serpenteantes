@@ -11,7 +11,7 @@ const ensureLoggedIn = require('../config/auth');
 router.get('/', userControl.index);
 
 //GET /user
-router.get('/:id', ensureLoggedIn, userControl.show)
+router.get('/:id', userControl.show)
 
 // POST /reviews/:id/reviews (create review for a movie)
 //router.post('/:id/reviews', ensureLoggedIn, reviewsControl.create);

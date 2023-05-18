@@ -1,77 +1,75 @@
 <%- include('../partials/header') %>
 
-<h1><%= user.name %></h1>
 
-<div class="section">
-    <h2>Hiking Log</h2>
-   
-    <% if (completedTrails && completedTrails.length > 0) { %>
-      <ul>
-          <% completedTrails.forEach(function(trail) {
-            if (trail) { // Check if trail is not null
-          %>
-            <li><a href="/trails/<%= trail._id %>"><%= trail.name %></a></li>
-          <% }
-          }); %>
-      </ul>
+<h1 class="card-title"><%= user.name %></h1>
+
+<div  class="section">
+  <h2 class="section-heading">Hiking Log</h2>
+
+  <% if (completedTrails && completedTrails.length > 0) { %>
+  <ul class="list">
+    <% completedTrails.forEach(function(trail) {
+      if (trail) { // Check if trail is not null
+    %>
+    <li><a href="/trails/<%= trail._id %>"><%= trail.name %></a></li>
+    <% }
+      }); %>
+  </ul>
   <% } else { %>
-      <p>No completed trails found.</p>
+  <p class="no-data">No completed trails found.</p>
   <% } %>
 </div>
 
 <div class="section">
-    <h2>Favorite Hikes</h2>
+  <h2 class="section-heading">Favorite Hikes</h2>
 
-    <% if (favoriteTrails && favoriteTrails.length > 0) { %>
-      <ul>
-          <% favoriteTrails.forEach(function(trail) {
-            if (trail) { // Check if trail is not null
-          %>
-            <li><a href="/trails/<%= trail._id %>"><%= trail.name %></a></li>
-          <% }
-          }); %>
-      </ul>
+  <% if (favoriteTrails && favoriteTrails.length > 0) { %>
+  <ul class="list">
+    <% favoriteTrails.forEach(function(trail) {
+      if (trail) { // Check if trail is not null
+    %>
+    <li><a href="/trails/<%= trail._id %>"><%= trail.name %></a></li>
+    <% }
+      }); %>
+  </ul>
   <% } else { %>
-      <p>No favorite hikes found.</p>
+  <p class="no-data">No favorite hikes found.</p>
   <% } %>
-
 </div>
 
 <div class="section">
-    <h2>Reviews</h2>
+  <h2 class="section-heading">Reviews</h2>
 
-    <% if (user.reviews.length) { %>
-      <table>
-        <thead>
-          <tr>
-            <th>Trail Name</th>
-            <th>Date Hiked</th>
-            <th>Review</th>
-            <th>Rating</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% user.reviews.forEach(function(r) { %>
-            <tr>
-              <td><%= r.nameOfTrail %></td>
-              <td><%= r.dateHiked ? r.dateHiked.toLocaleDateString() : '' %></td>
-              <td><%= r.content %></td>
-              <td><%= r.rating %></td>
-            </tr>
-          <% }); %>
-          <tr>
-            <td colspan="4"></td>
-          </tr>
-        </tbody>
-      </table>
-    <% } else { %>
-      <h5>No Reviews Yet</h5>
-    <% } %>
-
-
-
-    <!-- Content for Reviews section -->
+  <% if (user.reviews.length) { %>
+  <table class="reviews-table">
+    <thead>
+      <tr>
+        <th>Trail Name</th>
+        <th>Date Hiked</th>
+        <th>Review</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% user.reviews.forEach(function(r) { %>
+      <tr>
+        <td><%= r.nameOfTrail %></td>
+        <td><%= r.dateHiked ? r.dateHiked.toLocaleDateString() : '' %></td>
+        <td><%= r.content %></td>
+        <td><%= r.rating %></td>
+      </tr>
+      <% }); %>
+      <tr>
+        <td colspan="4"></td>
+      </tr>
+    </tbody>
+  </table>
+  <% } else { %>
+  <h5 class="no-data">No Reviews Yet</h5>
+  <% } %>
 </div>
+
+
+
 
 <%- include('../partials/footer') %>

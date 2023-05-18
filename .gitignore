@@ -1,0 +1,7 @@
+# I add my sensitive info so that git will ignore this file
+.env
+# I also want to ignore node_modules
+# this is bc its a huge folder, and we can automatically add whenver we add npm i
+node_modules
+
+fly.toml
