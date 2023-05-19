@@ -1,4 +1,4 @@
-# Senderos Serpenteantes - No Frills App for Hikers
+# Senderos - No Frills App for Hikers
 
 Senderos Serpentantes is a no-frills app for hikers to learn about, share, and save trails.
 - [Senderos Serpentantes Trello Board](https://trello.com/b/BCFgb0eM/senderos-serpenteantes)
