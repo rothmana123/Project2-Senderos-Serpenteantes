@@ -26,9 +26,17 @@ Senderos Serpentantes is a no-frills app for hikers to learn about, share, and s
 
 ## Technologies Used
 
-- HTML
-- CSS
-- Javascript
+HTML
+-Pages rendered via ejs
+
+CSS
+-bootstrap
+
+MEN Stack
+-MongoDB database
+-Mongoose ODM
+-Express web framework
+-Node.js
 
 ## User Stories
 
