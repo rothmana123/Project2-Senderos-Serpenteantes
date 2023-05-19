@@ -49,31 +49,6 @@ As a user, I want:
 - To be able to filter trails by features.
 - To be able to filter trails by review.
 
-## Pseudocode
 
-- **User Authentication**
-  - `function login(username, password)`: Verify user credentials and log them into the app. Return logged-in user object.
-  - `function logout(user)`: Log out the user from the app.
 
-- **Trail Operations**
-  - `function get_trail(trail_id)`: Retrieve trail details based on the provided trail ID. Return trail object.
-  - `function add_trail(trail_data)`: Add a new trail to the app's database using the provided trail data. Return newly added trail object.
-  - `function edit_trail(trail_id, updated_data)`: Update the trail details for the specified trail ID using the provided updated data. Return updated trail object.
-
-- **Review Operations**
-  - `function add_review(trail_id, review_data)`: Add a review for the specified trail using the provided review data. Return newly added review object.
-
-- **User Profile Operations**
-  - `function add_completed_trail(user, trail_id)`: Add the specified trail to the completed trails list for the user. Update user profile information.
-  - `function create_favorite_list(user, list_name)`: Create a new favorite trails list for the user with the provided list name. Return newly created list object.
-  - `function get_user_lists(user)`: Retrieve all the favorite trails lists for the user. Return a list of list objects.
-
-- **Trail Filtering and Searching**
-  - `function search_trails_by_region(region)`: Search and retrieve trails based on the specified region. Return a list of matching trail objects.
-  - `function filter_trails_by_length(trails, min_length, max_length)`: Filter the given list of trails based on the provided minimum and maximum lengths. Return a filtered list of trail objects.
-  - `function filter_trails_by_features(trails, features)`: Filter the given list of trails based on the provided features. Return a filtered list of trail objects.
-  - `function filter_trails_by_review(trails, min_rating)`: Filter the given list of trails based on the provided minimum rating. Return a filtered list of trail objects.
-
-- **Map Rendering**
-  - `function render_trails_on_map(trails)`: Render the given trails on a map display. Display markers or overlays representing the trails.
 
