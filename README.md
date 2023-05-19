@@ -41,9 +41,11 @@ MEN Stack
 ## Getting Started
 
 Deployed Application
-- https://senderos.fly.dev/
+- [https://senderos.fly.dev/](https://senderos.fly.dev/)
+
 Trello Planning Board
-- https://trello.com/b/BCFgb0eM/senderos-serpenteantes
+- [https://trello.com/b/BCFgb0eM/senderos-serpenteantes](https://trello.com/b/BCFgb0eM/senderos-serpenteantes)
+
 
 ## User Stories
 
