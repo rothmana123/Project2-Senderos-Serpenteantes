@@ -38,6 +38,12 @@ MEN Stack
 - Express web framework
 - Node.js
 
+## Getting Started
+
+Deployed Application
+- https://senderos.fly.dev/
+Trello Planning Board
+- https://trello.com/b/BCFgb0eM/senderos-serpenteantes
 
 ## User Stories
 
