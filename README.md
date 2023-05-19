@@ -46,6 +46,11 @@ Deployed Application
 Trello Planning Board
 - [https://trello.com/b/BCFgb0eM/senderos-serpenteantes](https://trello.com/b/BCFgb0eM/senderos-serpenteantes)
 
+## Icebox Features
+
+- map feature
+- upload images
+- follow users
 
 ## User Stories
 
